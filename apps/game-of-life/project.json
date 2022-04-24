@@ -1,0 +1,60 @@
+{
+  "root": "apps/game-of-life",
+  "sourceRoot": "apps/game-of-life",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "root": "apps/game-of-life",
+        "outputPath": "dist/apps/game-of-life"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "game-of-life:build",
+        "dev": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "game-of-life:build:development",
+          "dev": true
+        },
+        "production": {
+          "buildTarget": "game-of-life:build:production",
+          "dev": false
+        }
+      }
+    },
+    "export": {
+      "executor": "@nrwl/next:export",
+      "options": {
+        "buildTarget": "game-of-life:build:production"
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/game-of-life"],
+      "options": {
+        "jestConfig": "apps/game-of-life/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/game-of-life/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  },
+  "tags": []
+}

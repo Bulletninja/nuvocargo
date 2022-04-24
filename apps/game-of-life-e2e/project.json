@@ -1,0 +1,28 @@
+{
+  "root": "apps/game-of-life-e2e",
+  "sourceRoot": "apps/game-of-life-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/game-of-life-e2e/cypress.json",
+        "devServerTarget": "game-of-life:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "game-of-life:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/game-of-life-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["game-of-life"]
+}

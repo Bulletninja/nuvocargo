@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "game-of-life": "apps/game-of-life",
+    "game-of-life-e2e": "apps/game-of-life-e2e"
+  }
+}
